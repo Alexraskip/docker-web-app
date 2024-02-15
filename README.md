@@ -1,3 +1,5 @@
+VERSION1
+
 **Try a sample container**
 docker pull sampson101/web-app:1.2
 docker run –d –p 900:80 sampson101/web-app:1.2
