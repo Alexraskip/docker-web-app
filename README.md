@@ -1,3 +1,6 @@
+**Version 1: project**
+Your main outcome is to have a shareable working docker image hosted on the docker Hub
+
 **Try a sample container**
 docker pull sampson101/web-app:1.2
 docker run –d –p 900:80 sampson101/web-app:1.2
