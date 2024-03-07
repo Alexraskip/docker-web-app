@@ -2,15 +2,27 @@
 <html>
   <head>
     <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
   </head>
   <body>
-    <h1>Kali Docker Form</h1>
-    <form>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username"><br><br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password"><br><br>
-      <input type="submit" value="Submit">
-    </form>
+    <div class="limiter">
+      <div class="container-login">
+        <div class="wrap-login">
+          <div class="form-title" style="background-image: url(images/bg-01.jpg);">
+            <h1 class="login100-form-title-1">SIGN IN</h1>
+          </div>
+          <div class="form-body">
+            <form>
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" placeholder="Enter username"><br><br>
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" placeholder="Enter password"><br><br>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
