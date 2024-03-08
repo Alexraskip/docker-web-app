@@ -56,6 +56,7 @@ Choose the cluster type (e.g., "Networking only" or "Fargate") and configure the
 Follow the prompts to create the cluster.
 
 **5. Upload/Push Your Image to AWS ECR**
+
 a) Log in to the AWS Management Console and navigate to the Amazon ECR service.
 
 b) Click on "Repositories" in the left sidebar and then click "Create repository".
@@ -79,13 +80,7 @@ j) Retrieve an authentication token and authenticate your Docker client to your 
 
 aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/f1w9i4v0
 
-**Build your Docker image using the following command. For information on building a Docker file from scratch see the instructions here .
-
-You can skip this step if your image is already built:**
-
-docker build -t my-php-app .
-
-**After the build completes, tag your image so you can push the image to this repository:**
+**Tag your image so you can push the image to this repository:**
 
 docker tag my-php-app:new public.ecr.aws/f1w9i4v0/my-php-app:latest
 
