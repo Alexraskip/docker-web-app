@@ -33,7 +33,7 @@ b) Tag your local Docker image with your Docker Hub username and the repository 
 
 c) Push the tagged image to Docker Hub: docker push raskip/kali-static-webpage:new
 
-iv) Push the image to the Github repo
+iv) **Push the image to the Github repo**
 
 a) Add GitHub Repository as Remote git remote add origin https://github.com/Alexraskip/docker-web-app.git
 
