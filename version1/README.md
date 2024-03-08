@@ -7,7 +7,7 @@ Project Files
 Create a simple HTML file named "index.html" inside the "version1" folder. The HTML file will be a basic login form you would like to display. * static webpage
 
 <title>Login Form</title>
-Azubi Docker Form
+Kali Docker Form
 Username:
 
 Password:
