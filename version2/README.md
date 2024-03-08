@@ -44,8 +44,19 @@ b) Ensure you can see your new custom image (docker images): docker images
 
 c) Run the Image to confirm it works: docker run -d -p 8096:80 my-php-app
 
+**4. Push the image to a docker hub repo**
+a) Log in to Docker Hub using the docker login command: docker login
 
-**4. Create an Amazon ECS Cluster**
+b) Tag your local Docker image with your Docker Hub username and the repository name: docker tag my-php-app:latest raskip/my-php-app:latest
+
+c) Push the tagged image to Docker Hub: docker push raskip/my-php-app:latest
+
+**5. Push the image to the Github repo**
+a) Add GitHub Repository as Remote git remote add origin https://github.com/Alexraskip/docker-web-app.git
+
+b) Add all the files in the directory to the staging area, commit them, and push them to your GitHub repository git add . git commit -m "Initial commit: Add docker-web-app files" git push -u origin master
+
+**6. Create an Amazon ECS Cluster**
 
 Log in to the AWS Management Console and navigate to the Amazon ECS service.
 
@@ -55,7 +66,7 @@ Choose the cluster type (e.g., "Networking only" or "Fargate") and configure the
 
 Follow the prompts to create the cluster.
 
-**5. Upload/Push Your Image to AWS ECR**
+**7. Upload/Push Your Image to AWS ECR**
 
 a) Log in to the AWS Management Console and navigate to the Amazon ECR service.
 
@@ -89,7 +100,7 @@ docker tag my-php-app:new public.ecr.aws/f1w9i4v0/my-php-app:latest
 
 docker push public.ecr.aws/f1w9i4v0/my-php-app:latest
 
-**Set Up an Amazon ECS Task Definition**
+**8. Set Up an Amazon ECS Task Definition**
 
 a) In the Amazon ECS console, navigate to "Task Definitions" in the left sidebar and click "Create new Task Definition".
 
@@ -101,4 +112,4 @@ d) Configure other container settings as needed.
 
 e) Review and create your task definition.
 
-
+9. Launch a new Fargate task using the task definition you just created. Wait for 5-10 min until everything is running) Access the web app by going to the Fargate task's public IP address. 
