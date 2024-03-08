@@ -21,9 +21,9 @@ Try a sample container docker pull sampson101/web-app:1.2 docker run –d –p 9
 
 3. **Build first custom docker image**
    
-i) Run the following command to build the Docker image: docker build -t kali-static-webpage:new . 
+a) Run the following command to build the Docker image: docker build -t kali-static-webpage:new . 
 
-ii) Run a container using the built image: docker run -d -p 8097:80 --name kaliapp kali-static-webpage:new
+b) Run a container using the built image: docker run -d -p 8097:80 --name kaliapp kali-static-webpage:new
 
 4.  **Push the image to a docker hub repo**
 
