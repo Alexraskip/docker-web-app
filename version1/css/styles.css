@@ -53,3 +53,20 @@ body, html {
     justify-content: space-between;
     padding: 43px 88px 93px 190px;
 }
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 160px;
+    height: 50px;
+    background-color: #464745;
+    border-radius: 25px;
+    font-family: Poppins-Regular;
+    font-size: 25px;
+    color: #fff;
+    line-height: 1.2;
+    transition: all .4s;
+    cursor: pointer;
+}
