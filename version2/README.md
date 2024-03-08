@@ -10,9 +10,13 @@ To process the inputs when we submit the form. Because we will use php, we will 
 
     **Key points:**
 The form action attribute is set to "login.php". This means that when the form is submitted, the browser will send the form data to the "login.php" file for processing.
+
 The form method attribute is set to "post". This indicates that the form data will be sent to the server using the HTTP POST method, which is suitable for handling sensitive data like passwords.
+
 The form contains input fields for the username and password, both marked as required, ensuring that the user must fill them out before submitting the form.
+
 Finally, there's a submit button labeled "Login" that the user can click to submit the form.
+
 Your HTML login form is ready to send data to the "login.php" file for processing when submitted by the user.
 
     **Key points:**
@@ -40,8 +44,8 @@ b) Ensure you can see your new custom image (docker images): docker images
 c) Run the Image to confirm it works: docker run -d -p 8096:80 my-php-app
 
 
-4. Create an Amazon ECS Cluster
-5. 
+**4. Create an Amazon ECS Cluster**
+
 Log in to the AWS Management Console and navigate to the Amazon ECS service.
 
 Click on "Clusters" in the left sidebar and then click "Create Cluster".
