@@ -61,9 +61,10 @@ a) Log in to the AWS Management Console and navigate to the Amazon ECR service.
 
 b) Click on "Repositories" in the left sidebar and then click "Create repository".
 
-c) Give your repository the same name as your Docker image (e.g., "docker-web-app").
+c) Give your repository the same name as your Docker image (e.g., "my-php-app").
 
 d) Follow the prompts to create the repository.
+
 e) Once the repository is created, click on its name to open it.
 
 f) Click on "View push commands" to see how to push your Docker image to ECR.
