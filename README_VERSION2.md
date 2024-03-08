@@ -13,166 +13,69 @@ Create a second HTML file named "index.html" inside the "version2" folder with s
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    form {
-      width: 300px;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 5px;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: border-color 0.3s ease;
-    }
-
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-      border-color: #007bff;
-    }
-
-    .forgot-password {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .forgot-password a {
-      color: #007bff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .forgot-password a:hover {
-      text-decoration: underline;
-    }
-
-    .error-message {
-      color: red;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    input[type="submit"] {
-      width: 100%;
-      padding: 12px;
-      background-color: #007bff;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #0056b3;
-    }
-  </style>
 </head>
 <body>
-  <form id="loginForm" onsubmit="return validateForm()">
-    <h1>Azubi Docker Form</h1>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username">
-    <div id="usernameError" class="error-message"></div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password">
-    <div id="passwordError" class="error-message"></div>
-    <div class="forgot-password">
-      <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+  <h2>Login Form</h2>
+  <form action="login.php" method="post">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
     </div>
-    <input type="submit" value="Submit">
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Login</button>
   </form>
-
-  <script>
-    function validateForm() {
-      var username = document.getElementById('username').value.trim();
-      var password = document.getElementById('password').value.trim();
-      var usernameError = document.getElementById('usernameError');
-      var passwordError = document.getElementById('passwordError');
-      var isValid = true;
-
-      // Validate username
-      if (username === '') {
-        usernameError.textContent = 'Username is required';
-        isValid = false;
-      } else {
-        usernameError.textContent = '';
-      }
-
-      // Validate password
-      if (password === '') {
-        passwordError.textContent = 'Password is required';
-        isValid = false;
-      } else if (password.length < 8) {
-        passwordError.textContent = 'Password must be 8 characters or more';
-        isValid = false;
-      } else {
-        passwordError.textContent = '';
-      }
-
-      return isValid;
-    }
-
-    // Implement forgot password functionality
-    var forgotPasswordLink = document.getElementById('forgotPasswordLink');
-    forgotPasswordLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      alert('Forgot Password functionality is not implemented yet.');
-    });
-  </script>
 </body>
 </html>
 
-
-
 **Create a php file (server-side scripting) to process the inputs when we submit the form. Because we will use php, we will need to set up a Docker file that can create a web server and php-enabled image. **
+
+**Key points:
+**
+The form action attribute is set to "login.php". This means that when the form is submitted, the browser will send the form data to the "login.php" file for processing.
+The form method attribute is set to "post". This indicates that the form data will be sent to the server using the HTTP POST method, which is suitable for handling sensitive data like passwords.
+The form contains input fields for the username and password, both marked as required, ensuring that the user must fill them out before submitting the form.
+Finally, there's a submit button labeled "Login" that the user can click to submit the form.
+Your HTML login form is ready to send data to the "login.php" file for processing when submitted by the user.
 
 **process.php**
 
 <?php
+// Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the username and password from the form data
     $username = $_POST["username"];
     $password = $_POST["password"];
-    
-    // Process the inputs (you can add your processing logic here)
 
-    // For demonstration purposes, let's just echo the inputs
-    echo "Username: " . $username . "<br>";
-    echo "Password: " . $password;
+    // Perform basic input validation
+    if (empty($username) || empty($password)) {
+        echo "Both username and password are required.";
+        exit();
+    }
+
+    // Check if the username and password match the admin credentials
+    if ($username === "admin" && $password === "admin123") {
+        echo "Welcome, This is Admin!";
+    } else {
+        echo "Invalid Username or Password";
+    }
+} else {
+    // If the request method is not POST, redirect back to the login form
+    header("Location: index.html");
+    exit();
 }
 ?>
+
+**Key points:**
+
+The script checks if the request method is POST using $_SERVER["REQUEST_METHOD"].
+It retrieves the username and password from the form data using $_POST.
+Basic input validation is performed to ensure that both the username and password fields are not empty.
+It checks if the provided username and password match the admin credentials ("admin" and "admin123").
+If the credentials match, it echoes "Welcome, This is Admin!".
+If the credentials do not match or if the request method is not POST, it redirects the user back to the login form (index.html).
 
 **Build a second custom docker image**
 Using an online terminal or local. Ensure you are able to access your project files
@@ -194,7 +97,7 @@ docker build -t my-php-app . (Replace my-php-app with your desired image name.)
 
 **Run the Docker Container:**
 After building the image, you can run a Docker container based on this image:
-docker run -d -p 8085:80 my-php-app
+docker run -d -p 8089:80 --name myapp my-php-app
 
 **Create an Amazon ECS Cluster:**
 Log in to the AWS Management Console and navigate to the Amazon ECS service.
@@ -221,7 +124,7 @@ aws ecr-public get-login-password --region us-east-1 | docker login --username A
 docker build -t my-php-app .
 
 **After the build completes, tag your image so you can push the image to this repository:**
-docker tag my-php-app:new public.ecr.aws/f1w9i4v0/my-php-app:new
+docker tag my-php-app:new public.ecr.aws/f1w9i4v0/my-php-app:latest
 
 **Run the following command to push this image to your newly created AWS repository:**
 docker push public.ecr.aws/f1w9i4v0/my-php-app:latest
