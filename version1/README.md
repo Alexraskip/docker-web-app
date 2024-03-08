@@ -10,14 +10,14 @@ Try a sample container docker pull sampson101/web-app:1.2 docker run –d –p 9
 
 2. **Create a Dockerfile in the "version1" folder**. Dockerfiles are what tell docker how it should build your image (environments). 
 
-Use an official Nginx image as the base image
-FROM nginx:alpine
+      Use an official Nginx image as the base image
+      FROM nginx:alpine
 
-Copy the HTML file from the current directory into the container at /usr/share/nginx/html
-COPY index.html /usr/share/nginx/html
+      Copy the HTML file from the current directory into the container at /usr/share/nginx/html
+      COPY index.html /usr/share/nginx/html
 
-Expose port 80 to allow external access to the web server running inside the container
-EXPOSE 80
+      Expose port 80 to allow external access to the web server running inside the container
+      EXPOSE 80
 
 3. **Build first custom docker image**
    
@@ -25,7 +25,7 @@ i) Run the following command to build the Docker image: docker build -t kali-sta
 
 ii) Run a container using the built image: docker run -d -p 8097:80 --name kaliapp kali-static-webpage:new
 
-iii) **Push the image to a docker hub repo**
+4.  **Push the image to a docker hub repo**
 
 a) Log in to Docker Hub using the docker login command: docker login
 
@@ -33,7 +33,7 @@ b) Tag your local Docker image with your Docker Hub username and the repository 
 
 c) Push the tagged image to Docker Hub: docker push raskip/kali-static-webpage:new
 
-iv) **Push the image to the Github repo**
+5.  **Push the image to the Github repo**
 
 a) Add GitHub Repository as Remote git remote add origin https://github.com/Alexraskip/docker-web-app.git
 
