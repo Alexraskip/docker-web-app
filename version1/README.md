@@ -8,7 +8,7 @@ Try a sample container docker pull sampson101/web-app:1.2 docker run –d –p 9
 
 1. Create a simple HTML file named "index.html" inside the "version1" folder. The HTML file will be a basic login form you would like to display. Use the source code of the running container sampson101/web-app:1.2
 
-2. Create a Dockerfile in the "version1" folder. Dockerfiles are what tell docker how it should build your image (environments). 
+2. **Create a Dockerfile in the "version1" folder**. Dockerfiles are what tell docker how it should build your image (environments). 
 
 Use an official Nginx image as the base image
 FROM nginx:alpine
@@ -19,13 +19,13 @@ COPY index.html /usr/share/nginx/html
 Expose port 80 to allow external access to the web server running inside the container
 EXPOSE 80
 
-3. Build first custom docker image
+3. **Build first custom docker image**
    
 i) Run the following command to build the Docker image: docker build -t kali-static-webpage:new . 
 
 ii) Run a container using the built image: docker run -d -p 8097:80 --name kaliapp kali-static-webpage:new
 
-iii) Push the image to a docker hub repo
+iii) **Push the image to a docker hub repo**
 
 a) Log in to Docker Hub using the docker login command: docker login
 
