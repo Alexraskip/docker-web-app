@@ -3,7 +3,7 @@
 Your main outcome is to have a working docker image deployed on AWS and running on Fargate.
 
 **Project Files**
-**1. Create anHTML file named "index.html"** inside the "version2" folder with some additional functionality. Our file has a form that sends a POST request to a php file for processing.
+**1. Create an HTML file named "index.html"** inside the "version2" folder with some additional functionality. Our file has a form that sends a POST request to a php file for processing.
 
 **2. Create a php file (server-side scripting)**: 
 To process the inputs when we submit the form. Because we will use php, we will need to set up a Docker file that can create a web server and php-enabled image. 
