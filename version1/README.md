@@ -20,10 +20,13 @@ Expose port 80 to allow external access to the web server running inside the con
 EXPOSE 80
 
 3. Build first custom docker image
+   
 i) Run the following command to build the Docker image: docker build -t kali-static-webpage:new . 
+
 ii) Run a container using the built image: docker run -d -p 8097:80 --name kaliapp kali-static-webpage:new
 
 iii) Push the image to a docker hub repo
+
 a) Log in to Docker Hub using the docker login command: docker login
 
 b) Tag your local Docker image with your Docker Hub username and the repository name: docker tag kali-static-webpage:new raskip/kali-static-webpage:new
@@ -31,6 +34,7 @@ b) Tag your local Docker image with your Docker Hub username and the repository 
 c) Push the tagged image to Docker Hub: docker push raskip/kali-static-webpage:new
 
 iv) Push the image to the Github repo
+
 a) Add GitHub Repository as Remote git remote add origin https://github.com/Alexraskip/docker-web-app.git
 
 b) Add all the files in the directory to the staging area, commit them, and push them to your GitHub repository git add . git commit -m "Initial commit: Add docker-web-app files" git push -u origin master
